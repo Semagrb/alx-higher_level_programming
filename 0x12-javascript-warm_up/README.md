@@ -1,4 +1,5 @@
-echo "# 🌸 0x12. Javascript - Girly Warm-Up 🌸
+## 🌸 0x12. Javascript - Warm-Up 🌸
+
 
 ## Description
 Welcome to the magical world of Javascript, darling! 🎀 Our mission in this enchanting project is to dive into the wonders of Javascript, exploring its syntax and discovering its myriad uses.
