@@ -1,16 +1,11 @@
-// exportVar.js
-module.exports = {
- printMsg: function () {
-    if (process.argv.length === 2) {
-      console.log('No argument');
-    } else if (process.argv.length === 3) {
-      console.log('Argument found');
-    } else {
-      console.log('Arguments found');
-    }
- },
-};
+#!/usr/bin/node
 
-// app.js
-const exportVar = require('./exportVar');
-exportVar.printMsg();
+const argCount = process.argv.length - 2;
+
+if (argCount === 0) {
+  console.log('No argument');
+} else if (argCount === 1) {
+  console.log('Argument found');
+} else {
+  console.log('Arguments found');
+}
