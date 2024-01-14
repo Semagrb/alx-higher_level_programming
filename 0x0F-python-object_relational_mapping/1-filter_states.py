@@ -1,33 +1,25 @@
-import sys
+#!/usr/bin/python3
+""" lists all states from the database hbtn_0e_0_usa """
 import sqlite3
 
-
-def get_states(cursor):
-    cursor.execute("""SELECT * FROM states WHERE name
-                LIKE BINARY 'N%' ORDER BY states.id""")
-    return cursor.fetchall()
-
-
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: python3 script.py db_name table_name user pass")
-        return
+    try:
+        conn = sqlite3.connect('hbtn_0e_0_usa.db')
+        cursor = conn.cursor()
 
-    db_name, table_name, user, passwd = sys.argv[1:]
-    conn = sqlite3.connect(db_name)
-    cursor = conn.cursor()
+        query = '''SELECT name FROM states'''
+        cursor.execute(query)
 
-    states = get_states(cursor)
-
-    if states:
+        states = cursor.fetchall()
         for state in states:
-            print(state)
-    else:
-        print("No states found")
+            print(state[0])
 
-    cursor.close()
-    conn.close()
+        cursor.close()
+        conn.close()
 
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
