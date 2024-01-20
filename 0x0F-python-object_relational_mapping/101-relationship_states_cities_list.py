@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-"""
-Module that creates a State object with the name "California" and a City object with the name "San Francisco".
-It then associates the City object with the State object.
-"""
+"""Module that lists all State objects, and corresponding City objects,\
+        contained in the mySQL database"""
 import sys
-from relationship_state import Base, State
-from relationship_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from relationship_state import State
+from relationship_city import City
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Create a database engine using the provided arguments
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
@@ -21,18 +19,12 @@ if __name__ == '__main__':
     # Create a session object
     session = Session()
 
-    # Create a new State object with the name "California"
-    newState = State(name='California')
+    # Retrieve all states from the database and order them by ID
+    for state in session.query(State).order_by(State.id):
+        # Print state ID and name
+        print("{}: {}".format(state.id, state.name))
 
-    # Create a new City object with the name "San Francisco"
-    newCity = City(name='San Francisco')
-
-    # Associate the newCity object with the newState object
-    newState.cities.append(newCity)
-
-    # Add the newState object and the newCity object to the session
-    session.add(newState)
-    session.add(newCity)
-
-    # Commit the changes to the database
-    session.commit()
+        # Iterate over the cities associated with the current state
+        for city in state.cities:
+            # Print city ID and name
+            print("    {}: {}".format(city.id, city.name))
