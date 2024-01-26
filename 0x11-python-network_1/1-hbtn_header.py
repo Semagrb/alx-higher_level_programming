@@ -21,9 +21,11 @@ if __name__ == "__main__":
         try:
             # Open the URL and retrieve the response
             with urllib.request.urlopen(request) as response:
-                # Extract the X-Request-Id header variable and display its value
-                x_request_id = dict(response.headers).get("X-Request-Id")
-                print(x_request_id)
+                # Extract the X-Request-Id header variable
+                x_request_id = response.getheader("X-Request-Id")
+
+                # Print the X-Request-Id header variable in the required format
+                print(f"{x_request_id}")
         except urllib.error.HTTPError as e:
             # Handle HTTP errors gracefully and display the error code
             print(f"Error code: {e.code}")
