@@ -6,7 +6,7 @@ Hey, fabulous coder! Welcome to a world of sparkles and Python magic. 💻✨
 
 ### 0. What's my status? #0
 - **File:** 0-hbtn_status.py
-- **Description:** Feeling curious? Fetch the status of your coding kingdom at [https://intranet.hbtn.io/status](https://intranet.hbtn.io/status) using urllib. Dive into the magical realms of programming!
+- **Description:** Feeling curious? Fetch the status of your coding kingdom at [https://alx-intranet.hbtn.io/status](https://alx-intranet.hbtn.io/status) using urllib. Dive into the magical realms of programming!
 
 ### 1. Response header value #0
 - **File:** 1-hbtn_header.py
@@ -22,7 +22,7 @@ Hey, fabulous coder! Welcome to a world of sparkles and Python magic. 💻✨
 
 ### 4. What's my status? #1
 - **File:** 4-hbtn_status.py
-- **Description:** Seeking adventure in the status realms again? Fetch [https://intranet.hbtn.io/status](https://intranet.hbtn.io/status) using the magical powers of requests. Embrace the unknown! 🌟
+- **Description:** Seeking adventure in the status realms again? Fetch [https://alx-intranet.hbtn.io/status](https://alx-intranet.hbtn.io/status) using the magical powers of requests. Embrace the unknown! 🌟
 
 ### 5. Response header value #1
 - **File:** 5-hbtn_header.py
