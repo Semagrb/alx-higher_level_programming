@@ -7,20 +7,16 @@ request(url, function (error, response, body) {
   if (error) {
     console.error(error);
   } else if (response.statusCode === 200) {
-    const completedTasks = {};
     const tasks = JSON.parse(body);
-    
+    let completedTasksCount = 0;
+
     for (const task of tasks) {
-      if (task.completed === true) {
-        if (completedTasks[task.userId] === undefined) {
-          completedTasks[task.userId] = 1;
-        } else {
-          completedTasks[task.userId]++;
-        }
+      if (task.completed) {
+        completedTasksCount++;
       }
     }
-    
-    console.log(completedTasks);
+
+    console.log(completedTasksCount);
   } else {
     console.error('An error occurred. Status code: ' + response.statusCode);
   }
